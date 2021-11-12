@@ -147,7 +147,7 @@ drawmenu(void)
 	if (!passwd)
 		drw_text(drw, x, 0, w, bh, lrpad / 2, text, 0);
 
-	curpos = TEXTW(text) - TEXTW(&text[cursor]);
+	curpos = !passwd ? TEXTW(text) - TEXTW(&text[cursor]) : 0;
 	if ((curpos += lrpad / 2 - 1) < w) {
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		drw_rect(drw, x + curpos, 2, 2, bh - 4, 1, 0);
